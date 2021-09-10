@@ -35,4 +35,4 @@ const postSchema = require('./api/posts')
 app.use('/api/posts', checktoken, postSchema)
 
 
-app.listen(3900, () => console.log("SERVER STATUS: OK"))
+app.listen(process.env.PORT, () => console.log("SERVER STATUS: OK"))
