@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "ad432643-4c28-41b2-b161-a2ac9746c72c",
+		"name": "Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"demo\",\r\n    \"mobile\": \"9123456789\",\r\n    \"email\": \"demo@yopmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/api/users/signup",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"demo@yopmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/api/users/login",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "posts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZGVtb0B5b3BtYWlsLmNvbSIsImlhdCI6MTYzMTI0ODc1MywiZXhwIjoxNjM0ODQ4NzUzfQ.Xt8P0MlbDD2L-f_ktvSmdy4aFKcS0Va7_EwV4ykDvEE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "{{api_url}}/api/posts?page=1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYxM2FlMTZkODJiMDVlNTFiMDEzYmM0MyIsImVtYWlsIjoiZGVtb0B5b3BtYWlsLmNvbSIsIm5hbWUiOiJkZW1vIiwibW9iaWxlIjoiOTEyMzQ1Njc4OSIsInBhc3N3b3JkIjoiJDJhJDEwJC5MYVlGc09vZThMZWdtUjN6NWMyVGVzZ09BZVdDQnE2c0N2Qmo0dS5xTE5FbXoyRFJnMjU2IiwiY3JlYXRlZEF0IjoiMjAyMS0wOS0xMFQwNDozOTowOS4xMzRaIiwidXBkYXRlZEF0IjoiMjAyMS0wOS0xMFQwNDozOTowOS4xMzRaIiwiX192IjowfSwiaWF0IjoxNjMxMjQ5NzMwLCJleHAiOjE2MzQ4NDk3MzB9.YkA3ZfKh15vs_rKVYVEdbnU15ToCfjx-jUfGv0Ro8cw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"zebra\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/api/posts/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoic3VtaXRAeW9wbWFpbC5jb20iLCJpYXQiOjE2MzEyMDkwOTEsImV4cCI6MTYzNDgwOTA5MX0.SoWgONrvBOCXzQyPQl2_LPmpdnxO4R6BTOZgrZlPOug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"edited\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/api/posts/613ae6263740fd5fcc16d139",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"613ae6263740fd5fcc16d139"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoic3VtaXRAeW9wbWFpbC5jb20iLCJpYXQiOjE2MzEyMDkwOTEsImV4cCI6MTYzNDgwOTA5MX0.SoWgONrvBOCXzQyPQl2_LPmpdnxO4R6BTOZgrZlPOug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api_url}}/api/posts/613a4746cee1ba3dd0bd6cbc",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"613a4746cee1ba3dd0bd6cbc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
